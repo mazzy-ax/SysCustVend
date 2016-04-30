@@ -15,10 +15,11 @@
   CustVendTrans  trans  = cv.table().trans();
   Dialog         dialog = new Dialog();
 
-  dialog.AddField(cv.type().account());
-  dialog.AddField(cv.type().rContractAccount());
+  dialog.AddField(cv.typeid().account());
+  dialog.AddField(cv.typeid().rContractAccount());
 ```
 
 mazzy, v0.4-ax5, proof of concept
+
 TODO завершить fields, завершить enum. ѕока работают только table, tableId, type
 
