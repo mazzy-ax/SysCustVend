@@ -165,8 +165,8 @@ Formatversion: 1
         #//   CustVendTrans  trans  = cv.table().trans();
         #//   Dialog         dialog = new Dialog();
         #//
-        #//   dialog.AddField(cv.type().account());
-        #//   dialog.AddField(cv.type().rContractAccount());
+        #//   dialog.AddField(cv.typeid().account());
+        #//   dialog.AddField(cv.typeid().rContractAccount());
         #//
         #abstract class SysCustVend
         #{
