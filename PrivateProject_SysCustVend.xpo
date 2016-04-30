@@ -1,0 +1,1744 @@
+﻿Exportfile for AOT version 1.0 or later
+Formatversion: 1
+
+***Element: CLS
+
+; Microsoft Dynamics AX Class: SysCustVendTest выгружен
+; --------------------------------------------------------------------------------
+  CLSVERSION 1
+  
+  CLASS #SysCustVendTest
+    Id 54026
+    PROPERTIES
+      Name                #SysCustVendTest
+      Extends             #SysTestCase
+      RunOn               #Called from
+    ENDPROPERTIES
+    
+    METHODS
+      Version: 3
+      SOURCE #classDeclaration
+        #class SysCustVendTest extends SysTestCase
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #testTableConstructCust
+        #void testTableConstructCust()
+        #{
+        #    this.assertEquals(ModuleCustVend::Cust, SysCustVend::newFromTableId(tablenum(CustGroup)).module());
+        #    this.assertEquals(ModuleCustVend::Cust, SysCustVend::newFromTableId(tablenum(CustTable)).module());
+        #    this.assertEquals(ModuleCustVend::Cust, SysCustVend::newFromTableId(tablenum(CustTrans)).module());
+        #    this.assertEquals(ModuleCustVend::Cust, SysCustVend::newFromTableId(tablenum(CustTransOpen)).module());
+        #    this.assertEquals(ModuleCustVend::Cust, SysCustVend::newFromTableId(tablenum(CustSettlement)).module());
+        #    this.assertEquals(ModuleCustVend::Cust, SysCustVend::newFromTableId(tablenum(CustLedger)).module());
+        #    this.assertEquals(ModuleCustVend::Cust, SysCustVend::newFromTableId(tablenum(CustLedgerAccounts)).module());
+        #
+        #    this.assertEquals(null, SysCustVend::newFromTableId(tablenum(LedgerTrans), false));
+        #}
+      ENDSOURCE
+      SOURCE #testTableConstructVend
+        #void testTableConstructVend()
+        #{
+        #    this.assertEquals(ModuleCustVend::Vend, SysCustVend::newFromTableId(tablenum(VendGroup)).module());
+        #    this.assertEquals(ModuleCustVend::Vend, SysCustVend::newFromTableId(tablenum(VendTable)).module());
+        #    this.assertEquals(ModuleCustVend::Vend, SysCustVend::newFromTableId(tablenum(VendTrans)).module());
+        #    this.assertEquals(ModuleCustVend::Vend, SysCustVend::newFromTableId(tablenum(VendTransOpen)).module());
+        #    this.assertEquals(ModuleCustVend::Vend, SysCustVend::newFromTableId(tablenum(VendSettlement)).module());
+        #    this.assertEquals(ModuleCustVend::Vend, SysCustVend::newFromTableId(tablenum(VendLedger)).module());
+        #    this.assertEquals(ModuleCustVend::Vend, SysCustVend::newFromTableId(tablenum(VendLedgerAccounts)).module());
+        #
+        #    this.assertEquals(null, SysCustVend::newFromTableId(tablenum(LedgerTrans), false));
+        #}
+      ENDSOURCE
+      SOURCE #testTableCust
+        #void testTableCust()
+        #{
+        #    SysCustVend     cv  = SysCustVend::construct(ModuleCustVend::Cust);
+        #;
+        #    this.assertEquals(tablenum(CustGroup),          cv.table().group().TableId);
+        #    this.assertEquals(tablenum(CustTable),          cv.table().table().TableId);
+        #    this.assertEquals(tablenum(CustTrans),          cv.table().trans().TableId);
+        #    this.assertEquals(tablenum(CustTransOpen),      cv.table().open().TableId);
+        #    this.assertEquals(tablenum(CustSettlement),     cv.table().settlement().TableId);
+        #    this.assertEquals(tablenum(CustLedger),         cv.table().ledger().TableId);
+        #    this.assertEquals(tablenum(CustLedgerAccounts), cv.table().ledgerAccounts().TableId);
+        #}
+      ENDSOURCE
+      SOURCE #testTableIdCust
+        #void testTableIdCust()
+        #{
+        #    SysCustVend     cv  = SysCustVend::construct(ModuleCustVend::Cust);
+        #;
+        #    this.assertEquals(tablenum(CustGroup),          cv.tableId().group());
+        #    this.assertEquals(tablenum(CustTable),          cv.tableId().table());
+        #    this.assertEquals(tablenum(CustTrans),          cv.tableId().trans());
+        #    this.assertEquals(tablenum(CustTransOpen),      cv.tableId().open());
+        #    this.assertEquals(tablenum(CustSettlement),     cv.tableId().settlement());
+        #    this.assertEquals(tablenum(CustLedger),         cv.tableId().ledger());
+        #    this.assertEquals(tablenum(CustLedgerAccounts), cv.tableId().ledgerAccounts());
+        #}
+      ENDSOURCE
+      SOURCE #testTableIdVend
+        #void testTableIdVend()
+        #{
+        #    SysCustVend     cv  = SysCustVend::construct(ModuleCustVend::Vend);
+        #;
+        #    this.assertEquals(tablenum(VendGroup),          cv.tableId().group());
+        #    this.assertEquals(tablenum(VendTable),          cv.tableId().table());
+        #    this.assertEquals(tablenum(VendTrans),          cv.tableId().trans());
+        #    this.assertEquals(tablenum(VendTransOpen),      cv.tableId().open());
+        #    this.assertEquals(tablenum(VendSettlement),     cv.tableId().settlement());
+        #    this.assertEquals(tablenum(VendLedger),         cv.tableId().ledger());
+        #    this.assertEquals(tablenum(VendLedgerAccounts), cv.tableId().ledgerAccounts());
+        #}
+      ENDSOURCE
+      SOURCE #testTableVend
+        #void testTableVend()
+        #{
+        #    SysCustVend     cv  = SysCustVend::construct(ModuleCustVend::Vend);
+        #;
+        #    this.assertEquals(tablenum(VendGroup),          cv.table().group().TableId);
+        #    this.assertEquals(tablenum(VendTable),          cv.table().table().TableId);
+        #    this.assertEquals(tablenum(VendTrans),          cv.table().trans().TableId);
+        #    this.assertEquals(tablenum(VendTransOpen),      cv.table().open().TableId);
+        #    this.assertEquals(tablenum(VendSettlement),     cv.table().settlement().TableId);
+        #    this.assertEquals(tablenum(VendLedger),         cv.table().ledger().TableId);
+        #    this.assertEquals(tablenum(VendLedgerAccounts), cv.table().ledgerAccounts().TableId);
+        #}
+      ENDSOURCE
+      SOURCE #main
+        #static void main(Args args)
+        #{
+        #    SysTestRunner       runner      = new SysTestRunner(classstr(SysCustVendTest));
+        #    SysTestListenerDB   listener    = new SysTestListenerDB();
+        #    SysTestJobTable     sysTestJobTable;
+        #
+        #    runner.getResult().addListener(listener);
+        #    runner.run();
+        #
+        #    sysTestJobTable = SysTestJobTable::find(listener.parmJobId());
+        #    infolog.add( sysTestJobTable.Status == SysTestStatus::Passed ? Exception::Info : Exception::Warning,
+        #                 strfmt("%3: Тест завершен. %1:%2", sysTestJobTable.TestJobId, sysTestJobTable.Name, sysTestJobTable.Status),
+        #                 '', SysInfoAction_TableField::newBuffer(sysTestJobTable) );
+        #}
+        #
+      ENDSOURCE
+    ENDMETHODS
+  ENDCLASS
+
+***Element: CLS
+
+; Microsoft Dynamics AX Class: SysCustVend выгружен
+; --------------------------------------------------------------------------------
+  CLSVERSION 1
+  
+  CLASS #SysCustVend
+    Id 53922
+    PROPERTIES
+      Name                #SysCustVend
+      Extends             #
+      RunOn               #Called from
+    ENDPROPERTIES
+    
+    METHODS
+      Version: 3
+      SOURCE #chooseQuery
+        #// mazzy: выбираем один из query
+        #abstract Query chooseQuery(str custQueryStr, str vendQueryStr)
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #classDeclaration
+        #// mazzy, v0.4, proof of concept
+        #// TODO завершить fields, завершить enum. Пока работают только table, tableId, type
+        #//
+        #// класс, который позволяет создать объект один раз при инициализации какой-либо обработки.
+        #// при инициализации программист указывает с чем он работает - с клиентами или с поставщиками.
+        #// в дальнейшем объект быстро (очень быстро возвращает) таблицы, типы для диалогов, enum'ы, поля в конкретных таблицах
+        #// относящиеся либо к клиентам, либо к поставщикам.
+        #//
+        #// Причем важно, что для того, чтобы возвратить код таблицы клиентов, объекту не нужно выполнять сравнение или другие вычисления
+        #// объект просто возвращает константу
+        #//
+        #// Пример:
+        #//   SysCustVend    cv     = SysCustVend::constuct(ModuleCustVend::Cust);
+        #//   CustVendTrans  trans  = cv.table().trans();
+        #//   Dialog         dialog = new Dialog();
+        #//
+        #//   dialog.AddField(cv.type().account());
+        #//   dialog.AddField(cv.type().rContractAccount());
+        #//
+        #abstract class SysCustVend
+        #{
+        #    SysCustVendTable    custVendTable;
+        #    SysCustVendTableId  custVendTableId;
+        #    SysCustVendEnum     custVendEnum;
+        #    SysCustVendTypeId   custVendTypeId;
+        #    SysCustVendField    custVendField;
+        #}
+      ENDSOURCE
+      SOURCE #enum
+        #abstract SysCustVendEnum enum()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #field
+        #abstract SysCustVendField field()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #manage
+        #// возвращает ли данный класс данную таблицу, edt, enum? управляет ли класс объектом данного типа?
+        #protected boolean manage(classId classId, int id)
+        #{
+        #    DictClass           dc  = new DictClass(classId);
+        #    int                 n   = dc.objectMethodCnt();
+        #    int                 i;
+        #    DictMethod          dm;
+        #    ExecutePermission   perm = new ExecutePermission();
+        #    container debug;
+        #
+        #    perm.assert();
+        #    for(i=1; i<=n; ++i)
+        #    {
+        #        dm = dc.objectMethodObject(i);
+        #        if( dm.isAbstract() || dm.isStatic() )
+        #            continue;
+        #
+        #        debug = [dm.parameterCnt(),dm.returnType(),dm.returnId(), dm.name()];
+        #
+        #        if( dm.parameterCnt()                        == 0
+        #         && dm.returnType()                          == types::UserType
+        #         //&& dm.returnId()       == type_Id //TODO разобраться с типами
+        #         && dc.callObject(dm.name(), this.tableId()) == id)
+        #        {
+        #            return true;
+        #        }
+        #    }
+        #    return false;
+        #}
+      ENDSOURCE
+      SOURCE #module
+        #// в принципе можно было бы вызвать this.enum().module()
+        #// но это очень часто вызываемая проверка. Поэтому сокращаем и пишем явно
+        #abstract ModuleCustVend module()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #sumAccount
+        #abstract LedgerAccount sumAccount(CustAccount _custAccount, CustPostingProfile _custPostingProfile = '')
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #table
+        #SysCustVendTable table()
+        #{
+        #    if( !custVendTable )
+        #        custVendTable = new SysCustVendTable(this);
+        #
+        #    return custVendTable;
+        #}
+      ENDSOURCE
+      SOURCE #tableId
+        #abstract SysCustVendTableId tableId()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #typeId
+        #abstract SysCustVendTypeId typeId()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #construct
+        #public static SysCustVend construct(ModuleCustVend module, boolean throwError = true)
+        #{
+        #    SysCustVend custVend;
+        #
+        #    switch (module)
+        #    {
+        #        case ModuleCustVend::Cust :
+        #            custVend = new SysCustVend_Cust();
+        #            break;
+        #
+        #        case ModuleCustVend::Vend :
+        #            custVend = new SysCustVend_Vend();
+        #            break;
+        #
+        #        default:
+        #            if( throwError )
+        #                throw error(error::wrongUseOfFunction(funcname()));
+        #            break;
+        #    }
+        #
+        #    return custVend;
+        #}
+        #
+      ENDSOURCE
+      SOURCE #newFrom
+        #public static SysCustVend newFrom(classId custClass, classId vendClass, int id, boolean throwError = true)
+        #{
+        #    SysCustVend cv;
+        #
+        #    cv = SysCustVend::construct(ModuleCustVend::Cust);
+        #    if( cv.manage(custClass, id) )
+        #        return cv;
+        #
+        #    cv = SysCustVend::construct(ModuleCustVend::Vend);
+        #    if( cv.manage(vendClass, id) )
+        #        return cv;
+        #
+        #    if( throwError )
+        #        throw error(error::wrongUseOfFunction(funcname()));
+        #
+        #    return null;
+        #}
+        #
+      ENDSOURCE
+      SOURCE #newFromTableId
+        #public static SysCustVend newFromTableId(TableId id, boolean throwError = true)
+        #{
+        #    return SysCustVend::newFrom(classnum(SysCustVendTableId_Cust), classnum(SysCustVendTableId_Vend), id, throwError);
+        #}
+        #
+      ENDSOURCE
+      SOURCE #newFromEnum
+        #public static SysCustVend newFromEnum(anyType enum, boolean throwError = true)
+        #{
+        #    if( typeof(enum) == types::Enum )
+        #    {
+        #        return SysCustVend::newFrom(classnum(SysCustVendEnum_Cust), classnum(SysCustVendEnum_Vend), enum, throwError); //TODO разобраться с типом enum
+        #    }
+        #
+        #    if( throwError )
+        #        throw error(error::wrongUseOfFunction(funcname()));
+        #
+        #    return null;
+        #}
+        #
+      ENDSOURCE
+      SOURCE #newFromTypeId
+        #public static SysCustVend newFromTypeId(extendedTypeId id, boolean throwError = true)
+        #{
+        #    return SysCustVend::newFrom(classnum(SysCustVendTypeId_Cust), classnum(SysCustVendTypeId_Vend), id, throwError);
+        #}
+        #
+      ENDSOURCE
+      SOURCE #newFromArgs
+        #public static SysCustVend newFromArgs(Args args, boolean throwError = true)
+        #{
+        #    if( args && args.parmEnumType() && args.parmEnum() )
+        #    {
+        #        return SysCustVend::newFrom(classnum(SysCustVendEnum_Cust), classnum(SysCustVendEnum_Vend), args.parmEnum(), throwError);
+        #    }
+        #
+        #    if( throwError )
+        #        throw error(error::wrongUseOfFunction(funcname()));
+        #
+        #    return null;
+        #}
+        #
+      ENDSOURCE
+    ENDMETHODS
+  ENDCLASS
+
+***Element: CLS
+
+; Microsoft Dynamics AX Class: SysCustVend_Cust выгружен
+; --------------------------------------------------------------------------------
+  CLSVERSION 1
+  
+  CLASS #SysCustVend_Cust
+    Id 53923
+    PROPERTIES
+      Name                #SysCustVend_Cust
+      Extends             #SysCustVend
+      RunOn               #Called from
+    ENDPROPERTIES
+    
+    METHODS
+      Version: 3
+      SOURCE #chooseQuery
+        #// mazzy: выбираем один из query
+        #Query chooseQuery(str custQueryStr, str vendQueryStr)
+        #{
+        #    return new Query(custQueryStr);
+        #}
+      ENDSOURCE
+      SOURCE #classDeclaration
+        #class SysCustVend_Cust extends SysCustVend
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #enum
+        #SysCustVendEnum enum()
+        #{
+        #    if( !custVendEnum )
+        #        custVendEnum = new SysCustVendEnum_Cust();
+        #
+        #    return custVendEnum;
+        #}
+      ENDSOURCE
+      SOURCE #field
+        #SysCustVendField field()
+        #{
+        #    if( !custVendField )
+        #        custVendField = new SysCustVendField_Cust();
+        #
+        #    return custVendField;
+        #}
+      ENDSOURCE
+      SOURCE #module
+        #// в принципе можно было бы вызвать this.enum().module()
+        #// но это очень часто вызываемая проверка. Поэтому сокращаем и пишем явно
+        #ModuleCustVend module()
+        #{
+        #    return ModuleCustVend::Cust;
+        #}
+      ENDSOURCE
+      SOURCE #sumAccount
+        #LedgerAccount sumAccount(CustAccount _custAccount, CustPostingProfile _custPostingProfile = '')
+        #{
+        #    return CustLedgerAccounts::sumAccount(_custAccount, _custPostingProfile);
+        #}
+      ENDSOURCE
+      SOURCE #tableId
+        #SysCustVendTableId tableId()
+        #{
+        #    if( !custVendTableId )
+        #        custVendTableId = new SysCustVendTableId_Cust();
+        #
+        #    return custVendTableId;
+        #}
+      ENDSOURCE
+      SOURCE #typeId
+        #SysCustVendTypeId typeId()
+        #{
+        #    if( !custVendTypeId )
+        #        custVendTypeId = new SysCustVendTypeId_Cust();
+        #
+        #    return custVendTypeId;
+        #}
+      ENDSOURCE
+    ENDMETHODS
+  ENDCLASS
+
+***Element: CLS
+
+; Microsoft Dynamics AX Class: SysCustVend_Vend выгружен
+; --------------------------------------------------------------------------------
+  CLSVERSION 1
+  
+  CLASS #SysCustVend_Vend
+    Id 53924
+    PROPERTIES
+      Name                #SysCustVend_Vend
+      Extends             #SysCustVend
+      RunOn               #Called from
+    ENDPROPERTIES
+    
+    METHODS
+      Version: 3
+      SOURCE #chooseQuery
+        #// mazzy: выбираем один из query
+        #Query chooseQuery(str custQueryStr, str vendQueryStr)
+        #{
+        #    return new Query(vendQueryStr);
+        #}
+      ENDSOURCE
+      SOURCE #classDeclaration
+        #class SysCustVend_Vend extends SysCustVend
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #enum
+        #SysCustVendEnum enum()
+        #{
+        #    if( !custVendEnum )
+        #        custVendEnum = new SysCustVendEnum_Vend();
+        #
+        #    return custVendEnum;
+        #}
+      ENDSOURCE
+      SOURCE #field
+        #SysCustVendField field()
+        #{
+        #    if( !custVendField )
+        #        custVendField = new SysCustVendField_Vend();
+        #
+        #    return custVendField;
+        #}
+      ENDSOURCE
+      SOURCE #module
+        #// в принципе можно было бы вызвать this.enum().module()
+        #// но это очень часто вызываемая проверка. Поэтому сокращаем и пишем явно
+        #ModuleCustVend module()
+        #{
+        #    return ModuleCustVend::Vend;
+        #}
+      ENDSOURCE
+      SOURCE #sumAccount
+        #LedgerAccount sumAccount(CustAccount _custAccount, CustPostingProfile _custPostingProfile = '')
+        #{
+        #    return VendLedgerAccounts::sumAccount(_custAccount, _custPostingProfile);
+        #}
+      ENDSOURCE
+      SOURCE #tableId
+        #SysCustVendTableId tableId()
+        #{
+        #    if( !custVendTableId )
+        #        custVendTableId = new SysCustVendTableId_Vend(this);
+        #
+        #    return custVendTableId;
+        #}
+      ENDSOURCE
+      SOURCE #typeId
+        #SysCustVendTypeId typeId()
+        #{
+        #    if( !custVendTypeId )
+        #        custVendTypeId = new SysCustVendTypeId_Vend(this);
+        #
+        #    return custVendTypeId;
+        #}
+      ENDSOURCE
+    ENDMETHODS
+  ENDCLASS
+
+***Element: CLS
+
+; Microsoft Dynamics AX Class: SysCustVendEnum выгружен
+; --------------------------------------------------------------------------------
+  CLSVERSION 1
+  
+  CLASS #SysCustVendEnum
+    Id 53931
+    PROPERTIES
+      Name                #SysCustVendEnum
+      Extends             #
+      RunOn               #Called from
+    ENDPROPERTIES
+    
+    METHODS
+      Version: 3
+      SOURCE #classDeclaration
+        #//TODO mapping CustVend*Map.FieldNum -> Cust*.FieldNum, Vend*.FieldNum
+        #class SysCustVendEnum
+        #{
+        #}
+      ENDSOURCE
+    ENDMETHODS
+  ENDCLASS
+
+***Element: CLS
+
+; Microsoft Dynamics AX Class: SysCustVendEnum_Cust выгружен
+; --------------------------------------------------------------------------------
+  CLSVERSION 1
+  
+  CLASS #SysCustVendEnum_Cust
+    Id 53932
+    PROPERTIES
+      Name                #SysCustVendEnum_Cust
+      Extends             #SysCustVendEnum
+      RunOn               #Called from
+    ENDPROPERTIES
+    
+    METHODS
+      Version: 3
+      SOURCE #classDeclaration
+        #class SysCustVendEnum_Cust extends SysCustVendEnum
+        #{
+        #}
+      ENDSOURCE
+    ENDMETHODS
+  ENDCLASS
+
+***Element: CLS
+
+; Microsoft Dynamics AX Class: SysCustVendEnum_Vend выгружен
+; --------------------------------------------------------------------------------
+  CLSVERSION 1
+  
+  CLASS #SysCustVendEnum_Vend
+    Id 53933
+    PROPERTIES
+      Name                #SysCustVendEnum_Vend
+      Extends             #SysCustVendEnum
+      RunOn               #Called from
+    ENDPROPERTIES
+    
+    METHODS
+      Version: 3
+      SOURCE #classDeclaration
+        #class SysCustVendEnum_Vend extends SysCustVendEnum
+        #{
+        #}
+      ENDSOURCE
+    ENDMETHODS
+  ENDCLASS
+
+***Element: CLS
+
+; Microsoft Dynamics AX Class: SysCustVendField выгружен
+; --------------------------------------------------------------------------------
+  CLSVERSION 1
+  
+  CLASS #SysCustVendField
+    Id 53934
+    PROPERTIES
+      Name                #SysCustVendField
+      Extends             #
+      RunOn               #Called from
+    ENDPROPERTIES
+    
+    METHODS
+      Version: 3
+      SOURCE #classDeclaration
+        #//TODO mapping CustVend*Map.FieldNum -> Cust*.FieldNum, Vend*.FieldNum
+        #class SysCustVendField
+        #{
+        #}
+      ENDSOURCE
+    ENDMETHODS
+  ENDCLASS
+
+***Element: CLS
+
+; Microsoft Dynamics AX Class: SysCustVendField_Cust выгружен
+; --------------------------------------------------------------------------------
+  CLSVERSION 1
+  
+  CLASS #SysCustVendField_Cust
+    Id 53935
+    PROPERTIES
+      Name                #SysCustVendField_Cust
+      Extends             #SysCustVendField
+      RunOn               #Called from
+    ENDPROPERTIES
+    
+    METHODS
+      Version: 3
+      SOURCE #classDeclaration
+        #class SysCustVendField_Cust extends SysCustVendField
+        #{
+        #}
+      ENDSOURCE
+    ENDMETHODS
+  ENDCLASS
+
+***Element: CLS
+
+; Microsoft Dynamics AX Class: SysCustVendField_Vend выгружен
+; --------------------------------------------------------------------------------
+  CLSVERSION 1
+  
+  CLASS #SysCustVendField_Vend
+    Id 53936
+    PROPERTIES
+      Name                #SysCustVendField_Vend
+      Extends             #SysCustVendField
+      RunOn               #Called from
+    ENDPROPERTIES
+    
+    METHODS
+      Version: 3
+      SOURCE #classDeclaration
+        #class SysCustVendField_Vend extends SysCustVendField
+        #{
+        #}
+      ENDSOURCE
+    ENDMETHODS
+  ENDCLASS
+
+***Element: CLS
+
+; Microsoft Dynamics AX Class: SysCustVendTable выгружен
+; --------------------------------------------------------------------------------
+  CLSVERSION 1
+  
+  CLASS #SysCustVendTable
+    Id 53925
+    PROPERTIES
+      Name                #SysCustVendTable
+      Extends             #
+      RunOn               #Called from
+    ENDPROPERTIES
+    
+    METHODS
+      Version: 3
+      SOURCE #classDeclaration
+        #class SysCustVendTable
+        #{
+        #    SysCustVend custVend;
+        #}
+      ENDSOURCE
+      SOURCE #custVend
+        #SysCustVend custVend()
+        #{
+        #    return custVend;
+        #}
+      ENDSOURCE
+      SOURCE #finalize
+        #// поможем сборщику мусора, разорвем циклическую связь
+        #void finalize()
+        #{
+        #    custVend = null;
+        #}
+      ENDSOURCE
+      SOURCE #group
+        #CustVendGroup group()
+        #{
+        #    return new DictTable(this.custVend().tableId().group()).makeRecord();
+        #}
+      ENDSOURCE
+      SOURCE #ledger
+        #CustVendLedger ledger()
+        #{
+        #    return new DictTable(this.custVend().tableId().ledger()).makeRecord();
+        #}
+      ENDSOURCE
+      SOURCE #ledgerAccounts
+        #CustVendLedgerAccounts ledgerAccounts()
+        #{
+        #    return new DictTable(this.custVend().tableId().ledgerAccounts()).makeRecord();
+        #}
+      ENDSOURCE
+      SOURCE #new
+        #void new(SysCustVend _custVend)
+        #{
+        #    custVend = _custVend;
+        #}
+      ENDSOURCE
+      SOURCE #open
+        #CustVendTransOpen open()
+        #{
+        #    return new DictTable(this.custVend().tableId().open()).makeRecord();
+        #}
+      ENDSOURCE
+      SOURCE #settlement
+        #CustVendSettlement settlement()
+        #{
+        #    return new DictTable(this.custVend().tableId().settlement()).makeRecord();
+        #}
+      ENDSOURCE
+      SOURCE #table
+        #CustVendTable table()
+        #{
+        #    return new DictTable(this.custVend().tableId().table()).makeRecord();
+        #}
+      ENDSOURCE
+      SOURCE #trans
+        #CustVendTrans trans()
+        #{
+        #    return new DictTable(this.custVend().tableId().trans()).makeRecord();
+        #}
+      ENDSOURCE
+    ENDMETHODS
+  ENDCLASS
+
+***Element: CLS
+
+; Microsoft Dynamics AX Class: SysCustVendTableId выгружен
+; --------------------------------------------------------------------------------
+  CLSVERSION 1
+  
+  CLASS #SysCustVendTableId
+    Id 54027
+    PROPERTIES
+      Name                #SysCustVendTableId
+      Extends             #
+      RunOn               #Called from
+    ENDPROPERTIES
+    
+    METHODS
+      Version: 3
+      SOURCE #classDeclaration
+        #abstract class SysCustVendTableId
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #group
+        #abstract tableId group()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #ledger
+        #abstract tableId ledger()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #ledgerAccounts
+        #abstract tableId ledgerAccounts()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #open
+        #abstract tableId open()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #settlement
+        #abstract tableId settlement()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #table
+        #abstract tableId table()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #trans
+        #abstract tableId trans()
+        #{
+        #}
+      ENDSOURCE
+    ENDMETHODS
+  ENDCLASS
+
+***Element: CLS
+
+; Microsoft Dynamics AX Class: SysCustVendTableId_Cust выгружен
+; --------------------------------------------------------------------------------
+  CLSVERSION 1
+  
+  CLASS #SysCustVendTableId_Cust
+    Id 53926
+    PROPERTIES
+      Name                #SysCustVendTableId_Cust
+      Extends             #SysCustVendTableId
+      RunOn               #Called from
+    ENDPROPERTIES
+    
+    METHODS
+      Version: 3
+      SOURCE #classDeclaration
+        #final class SysCustVendTableId_Cust extends SysCustVendTableId
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #group
+        #final tableId group()
+        #{
+        #    return tablenum(CustGroup);
+        #}
+      ENDSOURCE
+      SOURCE #ledger
+        #final tableId ledger()
+        #{
+        #    return tablenum(CustLedger);
+        #}
+      ENDSOURCE
+      SOURCE #ledgerAccounts
+        #final tableId ledgerAccounts()
+        #{
+        #    return tablenum(CustLedgerAccounts);
+        #}
+      ENDSOURCE
+      SOURCE #open
+        #final tableId open()
+        #{
+        #    return tablenum(CustTransOpen);
+        #}
+      ENDSOURCE
+      SOURCE #settlement
+        #final tableId settlement()
+        #{
+        #    return tablenum(CustSettlement);
+        #}
+      ENDSOURCE
+      SOURCE #table
+        #final tableId table()
+        #{
+        #    return tablenum(CustTable);
+        #}
+      ENDSOURCE
+      SOURCE #trans
+        #final tableId trans()
+        #{
+        #    return tablenum(CustTrans);
+        #}
+      ENDSOURCE
+    ENDMETHODS
+  ENDCLASS
+
+***Element: CLS
+
+; Microsoft Dynamics AX Class: SysCustVendTableId_Vend выгружен
+; --------------------------------------------------------------------------------
+  CLSVERSION 1
+  
+  CLASS #SysCustVendTableId_Vend
+    Id 53927
+    PROPERTIES
+      Name                #SysCustVendTableId_Vend
+      Extends             #SysCustVendTableId
+      RunOn               #Called from
+    ENDPROPERTIES
+    
+    METHODS
+      Version: 3
+      SOURCE #classDeclaration
+        #class SysCustVendTableId_Vend extends SysCustVendTableId
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #group
+        #final tableId group()
+        #{
+        #    return tablenum(VendGroup);
+        #}
+      ENDSOURCE
+      SOURCE #ledger
+        #final tableId ledger()
+        #{
+        #    return tablenum(VendLedger);
+        #}
+      ENDSOURCE
+      SOURCE #ledgerAccounts
+        #final tableId ledgerAccounts()
+        #{
+        #    return tablenum(VendLedgerAccounts);
+        #}
+      ENDSOURCE
+      SOURCE #open
+        #final tableId open()
+        #{
+        #    return tablenum(VendTransOpen);
+        #}
+      ENDSOURCE
+      SOURCE #settlement
+        #final tableId settlement()
+        #{
+        #    return tablenum(VendSettlement);
+        #}
+      ENDSOURCE
+      SOURCE #table
+        #final tableId table()
+        #{
+        #    return tablenum(VendTable);
+        #}
+      ENDSOURCE
+      SOURCE #trans
+        #final tableId trans()
+        #{
+        #    return tablenum(VendTrans);
+        #}
+      ENDSOURCE
+    ENDMETHODS
+  ENDCLASS
+
+***Element: CLS
+
+; Microsoft Dynamics AX Class: SysCustVendTest выгружен
+; --------------------------------------------------------------------------------
+  CLSVERSION 1
+  
+  CLASS #SysCustVendTest
+    Id 54026
+    PROPERTIES
+      Name                #SysCustVendTest
+      Extends             #SysTestCase
+      RunOn               #Called from
+    ENDPROPERTIES
+    
+    METHODS
+      Version: 3
+      SOURCE #classDeclaration
+        #class SysCustVendTest extends SysTestCase
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #testTableConstructCust
+        #void testTableConstructCust()
+        #{
+        #    this.assertEquals(ModuleCustVend::Cust, SysCustVend::newFromTableId(tablenum(CustGroup)).module());
+        #    this.assertEquals(ModuleCustVend::Cust, SysCustVend::newFromTableId(tablenum(CustTable)).module());
+        #    this.assertEquals(ModuleCustVend::Cust, SysCustVend::newFromTableId(tablenum(CustTrans)).module());
+        #    this.assertEquals(ModuleCustVend::Cust, SysCustVend::newFromTableId(tablenum(CustTransOpen)).module());
+        #    this.assertEquals(ModuleCustVend::Cust, SysCustVend::newFromTableId(tablenum(CustSettlement)).module());
+        #    this.assertEquals(ModuleCustVend::Cust, SysCustVend::newFromTableId(tablenum(CustLedger)).module());
+        #    this.assertEquals(ModuleCustVend::Cust, SysCustVend::newFromTableId(tablenum(CustLedgerAccounts)).module());
+        #
+        #    this.assertEquals(null, SysCustVend::newFromTableId(tablenum(LedgerTrans), false));
+        #}
+      ENDSOURCE
+      SOURCE #testTableConstructVend
+        #void testTableConstructVend()
+        #{
+        #    this.assertEquals(ModuleCustVend::Vend, SysCustVend::newFromTableId(tablenum(VendGroup)).module());
+        #    this.assertEquals(ModuleCustVend::Vend, SysCustVend::newFromTableId(tablenum(VendTable)).module());
+        #    this.assertEquals(ModuleCustVend::Vend, SysCustVend::newFromTableId(tablenum(VendTrans)).module());
+        #    this.assertEquals(ModuleCustVend::Vend, SysCustVend::newFromTableId(tablenum(VendTransOpen)).module());
+        #    this.assertEquals(ModuleCustVend::Vend, SysCustVend::newFromTableId(tablenum(VendSettlement)).module());
+        #    this.assertEquals(ModuleCustVend::Vend, SysCustVend::newFromTableId(tablenum(VendLedger)).module());
+        #    this.assertEquals(ModuleCustVend::Vend, SysCustVend::newFromTableId(tablenum(VendLedgerAccounts)).module());
+        #
+        #    this.assertEquals(null, SysCustVend::newFromTableId(tablenum(LedgerTrans), false));
+        #}
+      ENDSOURCE
+      SOURCE #testTableCust
+        #void testTableCust()
+        #{
+        #    SysCustVend     cv  = SysCustVend::construct(ModuleCustVend::Cust);
+        #;
+        #    this.assertEquals(tablenum(CustGroup),          cv.table().group().TableId);
+        #    this.assertEquals(tablenum(CustTable),          cv.table().table().TableId);
+        #    this.assertEquals(tablenum(CustTrans),          cv.table().trans().TableId);
+        #    this.assertEquals(tablenum(CustTransOpen),      cv.table().open().TableId);
+        #    this.assertEquals(tablenum(CustSettlement),     cv.table().settlement().TableId);
+        #    this.assertEquals(tablenum(CustLedger),         cv.table().ledger().TableId);
+        #    this.assertEquals(tablenum(CustLedgerAccounts), cv.table().ledgerAccounts().TableId);
+        #}
+      ENDSOURCE
+      SOURCE #testTableIdCust
+        #void testTableIdCust()
+        #{
+        #    SysCustVend     cv  = SysCustVend::construct(ModuleCustVend::Cust);
+        #;
+        #    this.assertEquals(tablenum(CustGroup),          cv.tableId().group());
+        #    this.assertEquals(tablenum(CustTable),          cv.tableId().table());
+        #    this.assertEquals(tablenum(CustTrans),          cv.tableId().trans());
+        #    this.assertEquals(tablenum(CustTransOpen),      cv.tableId().open());
+        #    this.assertEquals(tablenum(CustSettlement),     cv.tableId().settlement());
+        #    this.assertEquals(tablenum(CustLedger),         cv.tableId().ledger());
+        #    this.assertEquals(tablenum(CustLedgerAccounts), cv.tableId().ledgerAccounts());
+        #}
+      ENDSOURCE
+      SOURCE #testTableIdVend
+        #void testTableIdVend()
+        #{
+        #    SysCustVend     cv  = SysCustVend::construct(ModuleCustVend::Vend);
+        #;
+        #    this.assertEquals(tablenum(VendGroup),          cv.tableId().group());
+        #    this.assertEquals(tablenum(VendTable),          cv.tableId().table());
+        #    this.assertEquals(tablenum(VendTrans),          cv.tableId().trans());
+        #    this.assertEquals(tablenum(VendTransOpen),      cv.tableId().open());
+        #    this.assertEquals(tablenum(VendSettlement),     cv.tableId().settlement());
+        #    this.assertEquals(tablenum(VendLedger),         cv.tableId().ledger());
+        #    this.assertEquals(tablenum(VendLedgerAccounts), cv.tableId().ledgerAccounts());
+        #}
+      ENDSOURCE
+      SOURCE #testTableVend
+        #void testTableVend()
+        #{
+        #    SysCustVend     cv  = SysCustVend::construct(ModuleCustVend::Vend);
+        #;
+        #    this.assertEquals(tablenum(VendGroup),          cv.table().group().TableId);
+        #    this.assertEquals(tablenum(VendTable),          cv.table().table().TableId);
+        #    this.assertEquals(tablenum(VendTrans),          cv.table().trans().TableId);
+        #    this.assertEquals(tablenum(VendTransOpen),      cv.table().open().TableId);
+        #    this.assertEquals(tablenum(VendSettlement),     cv.table().settlement().TableId);
+        #    this.assertEquals(tablenum(VendLedger),         cv.table().ledger().TableId);
+        #    this.assertEquals(tablenum(VendLedgerAccounts), cv.table().ledgerAccounts().TableId);
+        #}
+      ENDSOURCE
+      SOURCE #main
+        #static void main(Args args)
+        #{
+        #    SysTestRunner       runner      = new SysTestRunner(classstr(SysCustVendTest));
+        #    SysTestListenerDB   listener    = new SysTestListenerDB();
+        #    SysTestJobTable     sysTestJobTable;
+        #
+        #    runner.getResult().addListener(listener);
+        #    runner.run();
+        #
+        #    sysTestJobTable = SysTestJobTable::find(listener.parmJobId());
+        #    infolog.add( sysTestJobTable.Status == SysTestStatus::Passed ? Exception::Info : Exception::Warning,
+        #                 strfmt("%3: Тест завершен. %1:%2", sysTestJobTable.TestJobId, sysTestJobTable.Name, sysTestJobTable.Status),
+        #                 '', SysInfoAction_TableField::newBuffer(sysTestJobTable) );
+        #}
+        #
+      ENDSOURCE
+    ENDMETHODS
+  ENDCLASS
+
+***Element: CLS
+
+; Microsoft Dynamics AX Class: SysCustVendTypeId выгружен
+; --------------------------------------------------------------------------------
+  CLSVERSION 1
+  
+  CLASS #SysCustVendTypeId
+    Id 53928
+    PROPERTIES
+      Name                #SysCustVendTypeId
+      Extends             #
+      RunOn               #Called from
+    ENDPROPERTIES
+    
+    METHODS
+      Version: 3
+      SOURCE #account
+        #abstract extendedTypeId account()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #bankAccountId
+        #abstract extendedTypeId bankAccountId()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #groupId
+        #abstract extendedTypeId groupId()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #invoice4PaymId_RU
+        #abstract extendedTypeId invoice4PaymId_RU()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #invoiceAccount
+        #abstract extendedTypeId invoiceAccount()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #invoiceId
+        #abstract extendedTypeId invoiceId()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #itemGroupId
+        #abstract extendedTypeId itemGroupId()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #name
+        #abstract extendedTypeId name()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #paymId
+        #abstract extendedTypeId paymId()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #paymMode
+        #abstract extendedTypeId paymMode()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #paymSchedId
+        #abstract extendedTypeId paymSchedId()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #paymSpec
+        #abstract extendedTypeId paymSpec()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #paymTermId
+        #abstract extendedTypeId paymTermId()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #postingProfile
+        #abstract extendedTypeId postingProfile()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #priceGroup
+        #abstract extendedTypeId priceGroup()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #bankAccountId
+        #abstract extendedTypeId bankAccountId()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #classDeclaration
+        #abstract class SysCustVendTypeId
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #account
+        #abstract extendedTypeId account()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #groupId
+        #abstract extendedTypeId groupId()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #invoice4PaymId_RU
+        #abstract extendedTypeId invoice4PaymId_RU()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #invoiceAccount
+        #abstract extendedTypeId invoiceAccount()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #invoiceId
+        #abstract extendedTypeId invoiceId()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #itemGroupId
+        #abstract extendedTypeId itemGroupId()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #name
+        #abstract extendedTypeId name()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #paymId
+        #abstract extendedTypeId paymId()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #paymMode
+        #abstract extendedTypeId paymMode()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #paymSchedId
+        #abstract extendedTypeId paymSchedId()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #paymSpec
+        #abstract extendedTypeId paymSpec()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #paymTermId
+        #abstract extendedTypeId paymTermId()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #postingProfile
+        #abstract extendedTypeId postingProfile()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #priceGroup
+        #abstract extendedTypeId priceGroup()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #rContractAccount
+        #abstract extendedTypeId rContractAccount()
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #rContractCode
+        #abstract extendedTypeId rContractCode()
+        #{
+        #}
+      ENDSOURCE
+    ENDMETHODS
+  ENDCLASS
+
+***Element: CLS
+
+; Microsoft Dynamics AX Class: SysCustVendTypeId_Cust выгружен
+; --------------------------------------------------------------------------------
+  CLSVERSION 1
+  
+  CLASS #SysCustVendTypeId_Cust
+    Id 53929
+    PROPERTIES
+      Name                #SysCustVendTypeId_Cust
+      Extends             #SysCustVendTypeId
+      RunOn               #Called from
+    ENDPROPERTIES
+    
+    METHODS
+      Version: 3
+      SOURCE #account
+        #extendedTypeId account()
+        #{
+        #    return typeid(CustAccount);
+        #}
+      ENDSOURCE
+      SOURCE #bankAccountId
+        #extendedTypeId bankAccountId()
+        #{
+        #    return typeid(CustBankAccountId);
+        #}
+      ENDSOURCE
+      SOURCE #groupId
+        #extendedTypeId groupId()
+        #{
+        #    return typeid(CustGroupId);
+        #}
+      ENDSOURCE
+      SOURCE #invoice4PaymId_RU
+        #extendedTypeId invoice4PaymId_RU()
+        #{
+        #    return typeid(CustInvoice4PaymId_RU);
+        #}
+      ENDSOURCE
+      SOURCE #invoiceAccount
+        #extendedTypeId invoiceAccount()
+        #{
+        #    return typeid(CustInvoiceId);
+        #}
+      ENDSOURCE
+      SOURCE #invoiceId
+        #extendedTypeId invoiceId()
+        #{
+        #    return typeid(CustInvoiceId);
+        #}
+      ENDSOURCE
+      SOURCE #itemGroupId
+        #extendedTypeId itemGroupId()
+        #{
+        #    return typeid(CustItemGroupId);
+        #}
+      ENDSOURCE
+      SOURCE #name
+        #extendedTypeId name()
+        #{
+        #    return typeid(CustName);
+        #}
+      ENDSOURCE
+      SOURCE #paymId
+        #extendedTypeId paymId()
+        #{
+        #    return typeid(CustPaymId);
+        #}
+      ENDSOURCE
+      SOURCE #paymMode
+        #extendedTypeId paymMode()
+        #{
+        #    return typeid(CustPaymMode);
+        #}
+      ENDSOURCE
+      SOURCE #paymSchedId
+        #extendedTypeId paymSchedId()
+        #{
+        #    return typeid(CustPaymSchedId);
+        #}
+      ENDSOURCE
+      SOURCE #paymSpec
+        #extendedTypeId paymSpec()
+        #{
+        #    return typeid(CustPaymSpec);
+        #}
+      ENDSOURCE
+      SOURCE #paymTermId
+        #extendedTypeId paymTermId()
+        #{
+        #    return typeid(CustPaymTermId);
+        #}
+      ENDSOURCE
+      SOURCE #postingProfile
+        #extendedTypeId postingProfile()
+        #{
+        #    return typeid(CustPostingProfile);
+        #}
+      ENDSOURCE
+      SOURCE #priceGroup
+        #extendedTypeId priceGroup()
+        #{
+        #    return typeId(CustPriceGroup);
+        #}
+      ENDSOURCE
+      SOURCE #rContractAccount
+        #extendedTypeId rContractAccount()
+        #{
+        #    return typeid(RContractAccountCust);
+        #}
+      ENDSOURCE
+      SOURCE #rContractCode
+        #extendedTypeId rContractCode()
+        #{
+        #    return typeid(rContractCodeCust);
+        #}
+      ENDSOURCE
+      SOURCE #bankAccountId
+        #extendedTypeId bankAccountId()
+        #{
+        #    return typeid(CustBankAccountId);
+        #}
+      ENDSOURCE
+      SOURCE #classDeclaration
+        #class SysCustVendTypeId_Cust extends SysCustVendTypeId
+        #{
+        #}
+      ENDSOURCE
+      SOURCE #account
+        #extendedTypeId account()
+        #{
+        #    return typeid(CustAccount);
+        #}
+      ENDSOURCE
+      SOURCE #groupId
+        #extendedTypeId groupId()
+        #{
+        #    return typeid(CustGroupId);
+        #}
+      ENDSOURCE
+      SOURCE #invoice4PaymId_RU
+        #extendedTypeId invoice4PaymId_RU()
+        #{
+        #    return typeid(CustInvoice4PaymId_RU);
+        #}
+      ENDSOURCE
+      SOURCE #invoiceAccount
+        #extendedTypeId invoiceAccount()
+        #{
+        #    return typeid(CustInvoiceId);
+        #}
+      ENDSOURCE
+      SOURCE #invoiceId
+        #extendedTypeId invoiceId()
+        #{
+        #    return typeid(CustInvoiceId);
+        #}
+      ENDSOURCE
+      SOURCE #itemGroupId
+        #extendedTypeId itemGroupId()
+        #{
+        #    return typeid(CustItemGroupId);
+        #}
+      ENDSOURCE
+      SOURCE #name
+        #extendedTypeId name()
+        #{
+        #    return typeid(CustName);
+        #}
+      ENDSOURCE
+      SOURCE #paymId
+        #extendedTypeId paymId()
+        #{
+        #    return typeid(CustPaymId);
+        #}
+      ENDSOURCE
+      SOURCE #paymMode
+        #extendedTypeId paymMode()
+        #{
+        #    return typeid(CustPaymMode);
+        #}
+      ENDSOURCE
+      SOURCE #paymSchedId
+        #extendedTypeId paymSchedId()
+        #{
+        #    return typeid(CustPaymSchedId);
+        #}
+      ENDSOURCE
+      SOURCE #paymSpec
+        #extendedTypeId paymSpec()
+        #{
+        #    return typeid(CustPaymSpec);
+        #}
+      ENDSOURCE
+      SOURCE #paymTermId
+        #extendedTypeId paymTermId()
+        #{
+        #    return typeid(CustPaymTermId);
+        #}
+      ENDSOURCE
+      SOURCE #postingProfile
+        #extendedTypeId postingProfile()
+        #{
+        #    return typeid(CustPostingProfile);
+        #}
+      ENDSOURCE
+      SOURCE #priceGroup
+        #extendedTypeId priceGroup()
+        #{
+        #    return typeId(CustPriceGroup);
+        #}
+      ENDSOURCE
+      SOURCE #rContractAccount
+        #extendedTypeId rContractAccount()
+        #{
+        #    return typeid(RContractAccountCust);
+        #}
+      ENDSOURCE
+      SOURCE #rContractCode
+        #extendedTypeId rContractCode()
+        #{
+        #    return typeid(rContractCodeCust);
+        #}
+      ENDSOURCE
+    ENDMETHODS
+  ENDCLASS
+
+***Element: CLS
+
+; Microsoft Dynamics AX Class: SysCustVendTypeId_Vend выгружен
+; --------------------------------------------------------------------------------
+  CLSVERSION 1
+  
+  CLASS #SysCustVendTypeId_Vend
+    Id 53930
+    PROPERTIES
+      Name                #SysCustVendTypeId_Vend
+      Extends             #SysCustVendTypeId
+      RunOn               #Called from
+    ENDPROPERTIES
+    
+    METHODS
+      Version: 3
+      SOURCE #account
+        #extendedTypeId account()
+        #{
+        #    return typeid(VendAccount);
+        #}
+      ENDSOURCE
+      SOURCE #bankAccountId
+        #extendedTypeId bankAccountId()
+        #{
+        #    return typeid(VendBankAccountId);
+        #}
+      ENDSOURCE
+      SOURCE #groupId
+        #extendedTypeId groupId()
+        #{
+        #    return typeid(VendGroupId);
+        #}
+      ENDSOURCE
+      SOURCE #invoice4PaymId_RU
+        #extendedTypeId invoice4PaymId_RU()
+        #{
+        #    return typeid(VendInvoice4PaymId_RU);
+        #}
+      ENDSOURCE
+      SOURCE #invoiceAccount
+        #extendedTypeId invoiceAccount()
+        #{
+        #    return typeid(VendInvoiceId);
+        #}
+      ENDSOURCE
+      SOURCE #invoiceId
+        #extendedTypeId invoiceId()
+        #{
+        #    return typeid(VendInvoiceId);
+        #}
+      ENDSOURCE
+      SOURCE #itemGroupId
+        #extendedTypeId itemGroupId()
+        #{
+        #    return typeid(VendItemGroupId);
+        #}
+      ENDSOURCE
+      SOURCE #name
+        #extendedTypeId name()
+        #{
+        #    return typeid(VendName);
+        #}
+      ENDSOURCE
+      SOURCE #paymId
+        #extendedTypeId paymId()
+        #{
+        #    return typeid(VendPaymId);
+        #}
+      ENDSOURCE
+      SOURCE #paymMode
+        #extendedTypeId paymMode()
+        #{
+        #    return typeid(VendPaymMode);
+        #}
+      ENDSOURCE
+      SOURCE #paymSchedId
+        #extendedTypeId paymSchedId()
+        #{
+        #    return typeid(VendPaymSchedId);
+        #}
+      ENDSOURCE
+      SOURCE #paymSpec
+        #extendedTypeId paymSpec()
+        #{
+        #    return typeid(VendPaymSpec);
+        #}
+      ENDSOURCE
+      SOURCE #paymTermId
+        #extendedTypeId paymTermId()
+        #{
+        #    return typeid(VendPaymTermId);
+        #}
+      ENDSOURCE
+      SOURCE #postingProfile
+        #extendedTypeId postingProfile()
+        #{
+        #    return typeid(VendPostingProfile);
+        #}
+      ENDSOURCE
+      SOURCE #priceGroup
+        #extendedTypeId priceGroup()
+        #{
+        #    return typeId(VendPriceGroup);
+        #}
+      ENDSOURCE
+      SOURCE #rContractAccount
+        #extendedTypeId rContractAccount()
+        #{
+        #    return typeid(RContractAccountVend);
+        #}
+      ENDSOURCE
+      SOURCE #rContractCode
+        #extendedTypeId rContractCode()
+        #{
+        #    return typeid(rContractCodeVend);
+        #}
+      ENDSOURCE
+      SOURCE #classDeclaration
+        #class SysCustVendTypeId_Vend extends SysCustVendTypeId
+        #{
+        #}
+      ENDSOURCE
+    ENDMETHODS
+  ENDCLASS
+
+***Element: PRN
+
+; Microsoft Dynamics AX Project : SysCustVend unloaded
+; --------------------------------------------------------------------------------
+  PROJECTVERSION 2
+  
+  PROJECT #SysCustVend
+   PRIVATE
+  PROPERTIES
+    Name                #SysCustVend
+  ENDPROPERTIES
+  
+    PROJECTCLASS ProjectNode
+    BEGINNODE
+      FILETYPE 0
+      UTILTYPE 45
+      UTILOBJECTID 54026
+      NODETYPE 329
+      NAME #SysCustVendTest
+    ENDNODE
+    GROUP #SysCustVend
+      PROPERTIES
+        Name                #SysCustVend
+        ProjectGroupType    #Classes
+        GroupMask           #syscustvend
+        PreventEditProperties #No
+      ENDPROPERTIES
+      
+      BEGINNODE
+        FILETYPE 0
+        UTILTYPE 45
+        UTILOBJECTID 53922
+        NODETYPE 329
+        NAME #SysCustVend
+      ENDNODE
+      BEGINNODE
+        FILETYPE 0
+        UTILTYPE 45
+        UTILOBJECTID 53923
+        NODETYPE 329
+        NAME #SysCustVend_Cust
+      ENDNODE
+      BEGINNODE
+        FILETYPE 0
+        UTILTYPE 45
+        UTILOBJECTID 53924
+        NODETYPE 329
+        NAME #SysCustVend_Vend
+      ENDNODE
+      BEGINNODE
+        FILETYPE 0
+        UTILTYPE 45
+        UTILOBJECTID 53931
+        NODETYPE 329
+        NAME #SysCustVendEnum
+      ENDNODE
+      BEGINNODE
+        FILETYPE 0
+        UTILTYPE 45
+        UTILOBJECTID 53932
+        NODETYPE 329
+        NAME #SysCustVendEnum_Cust
+      ENDNODE
+      BEGINNODE
+        FILETYPE 0
+        UTILTYPE 45
+        UTILOBJECTID 53933
+        NODETYPE 329
+        NAME #SysCustVendEnum_Vend
+      ENDNODE
+      BEGINNODE
+        FILETYPE 0
+        UTILTYPE 45
+        UTILOBJECTID 53934
+        NODETYPE 329
+        NAME #SysCustVendField
+      ENDNODE
+      BEGINNODE
+        FILETYPE 0
+        UTILTYPE 45
+        UTILOBJECTID 53935
+        NODETYPE 329
+        NAME #SysCustVendField_Cust
+      ENDNODE
+      BEGINNODE
+        FILETYPE 0
+        UTILTYPE 45
+        UTILOBJECTID 53936
+        NODETYPE 329
+        NAME #SysCustVendField_Vend
+      ENDNODE
+      BEGINNODE
+        FILETYPE 0
+        UTILTYPE 45
+        UTILOBJECTID 53925
+        NODETYPE 329
+        NAME #SysCustVendTable
+      ENDNODE
+      BEGINNODE
+        FILETYPE 0
+        UTILTYPE 45
+        UTILOBJECTID 54027
+        NODETYPE 329
+        NAME #SysCustVendTableId
+      ENDNODE
+      BEGINNODE
+        FILETYPE 0
+        UTILTYPE 45
+        UTILOBJECTID 53926
+        NODETYPE 329
+        NAME #SysCustVendTableId_Cust
+      ENDNODE
+      BEGINNODE
+        FILETYPE 0
+        UTILTYPE 45
+        UTILOBJECTID 53927
+        NODETYPE 329
+        NAME #SysCustVendTableId_Vend
+      ENDNODE
+      BEGINNODE
+        FILETYPE 0
+        UTILTYPE 45
+        UTILOBJECTID 54026
+        NODETYPE 329
+        NAME #SysCustVendTest
+      ENDNODE
+      BEGINNODE
+        FILETYPE 0
+        UTILTYPE 45
+        UTILOBJECTID 53928
+        NODETYPE 329
+        NAME #SysCustVendTypeId
+      ENDNODE
+      BEGINNODE
+        FILETYPE 0
+        UTILTYPE 45
+        UTILOBJECTID 53929
+        NODETYPE 329
+        NAME #SysCustVendTypeId_Cust
+      ENDNODE
+      BEGINNODE
+        FILETYPE 0
+        UTILTYPE 45
+        UTILOBJECTID 53930
+        NODETYPE 329
+        NAME #SysCustVendTypeId_Vend
+      ENDNODE
+      ENDGROUP
+      
+  ENDPROJECT
+  
+
+***Element: END
